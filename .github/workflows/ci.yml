@@ -1,0 +1,27 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env: { POSTGRES_USER: shelfsense, POSTGRES_PASSWORD: shelfsense, POSTGRES_DB: shelfsense_test }
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U shelfsense" --health-interval 5s --health-timeout 3s --health-retries 20
+    env:
+      SHELFSENSE_TEST_DATABASE_URL: postgresql+psycopg://shelfsense:shelfsense@localhost:5432/shelfsense_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -e "backend[dev]"   # tests inject their own embedder; no model download needed
+      - run: cd backend && ruff check . && ruff format --check . && mypy app && pytest
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - run: cd frontend && npm ci && npm run lint && npm run typecheck && npm test && npm run build

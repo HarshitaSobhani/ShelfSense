@@ -1,0 +1,1472 @@
+[
+ {
+  "title": "Pride and Prejudice",
+  "authors": [
+   "Jane Austen"
+  ],
+  "first_publish_year": 1813,
+  "genres": [
+   "romance",
+   "classic"
+  ],
+  "moods": [
+   "witty",
+   "warm"
+  ],
+  "tropes": [
+   "enemies-to-lovers",
+   "slow burn",
+   "class divide"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Elizabeth Bennet spars with the proud Mr Darcy while her family hunts for suitable marriages. A sharp comedy of manners about first impressions, pride and money in Regency England."
+ },
+ {
+  "title": "Jane Eyre",
+  "authors": [
+   "Charlotte Brontë"
+  ],
+  "first_publish_year": 1847,
+  "genres": [
+   "gothic",
+   "romance",
+   "classic"
+  ],
+  "moods": [
+   "brooding",
+   "atmospheric"
+  ],
+  "tropes": [
+   "brooding hero",
+   "orphan",
+   "hidden secret"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "An orphaned governess takes a post at Thornfield Hall and falls for its moody master. Something in the house is not what it seems, and Jane must decide what she will not sacrifice for love."
+ },
+ {
+  "title": "Frankenstein",
+  "authors": [
+   "Mary Shelley"
+  ],
+  "first_publish_year": 1818,
+  "genres": [
+   "gothic",
+   "science fiction",
+   "classic"
+  ],
+  "moods": [
+   "bleak",
+   "haunting"
+  ],
+  "tropes": [
+   "creator and creation",
+   "obsession"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "A young scientist brings a living creature to life, then abandons it in horror. The creature's pursuit of its maker turns the book into a study of responsibility, loneliness and ambition."
+ },
+ {
+  "title": "Dracula",
+  "authors": [
+   "Bram Stoker"
+  ],
+  "first_publish_year": 1897,
+  "genres": [
+   "gothic",
+   "horror",
+   "classic"
+  ],
+  "moods": [
+   "tense",
+   "atmospheric"
+  ],
+  "tropes": [
+   "epistolary",
+   "vampire"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Told through letters and journals, a band of friends tracks a Transylvanian count who has come to England. A gothic chase across Europe built on dread and suspense."
+ },
+ {
+  "title": "Rebecca",
+  "authors": [
+   "Daphne du Maurier"
+  ],
+  "first_publish_year": 1938,
+  "genres": [
+   "gothic",
+   "suspense",
+   "classic"
+  ],
+  "moods": [
+   "atmospheric",
+   "tense"
+  ],
+  "tropes": [
+   "haunted house",
+   "mysterious past"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A young bride arrives at Manderley and finds herself haunted by her husband's dead first wife. Secrets of the estate slowly surface in this psychological gothic."
+ },
+ {
+  "title": "The Hobbit",
+  "authors": [
+   "J. R. R. Tolkien"
+  ],
+  "first_publish_year": 1937,
+  "genres": [
+   "fantasy",
+   "adventure",
+   "classic"
+  ],
+  "moods": [
+   "cozy",
+   "adventurous"
+  ],
+  "tropes": [
+   "quest",
+   "found family",
+   "unlikely hero"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Bilbo Baggins is swept from his comfortable home into a dwarf expedition to reclaim a mountain from a dragon. A warm, humorous quest about courage and homecoming."
+ },
+ {
+  "title": "The Fellowship of the Ring",
+  "authors": [
+   "J. R. R. Tolkien"
+  ],
+  "first_publish_year": 1954,
+  "genres": [
+   "fantasy",
+   "epic"
+  ],
+  "moods": [
+   "sweeping",
+   "earnest"
+  ],
+  "tropes": [
+   "quest",
+   "chosen one",
+   "found family"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Frodo inherits a ring that must be destroyed and sets out with a company of allies. The first part of an epic of friendship, temptation and a world on the brink of war."
+ },
+ {
+  "title": "A Wizard of Earthsea",
+  "authors": [
+   "Ursula K. Le Guin"
+  ],
+  "first_publish_year": 1968,
+  "genres": [
+   "fantasy",
+   "coming of age"
+  ],
+  "moods": [
+   "reflective",
+   "lyrical"
+  ],
+  "tropes": [
+   "magic school",
+   "pride and consequence"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A gifted boy named Ged learns wizardry and unleashes a shadow through his own arrogance. A compact, thoughtful fantasy about naming, balance and accepting yourself."
+ },
+ {
+  "title": "The Left Hand of Darkness",
+  "authors": [
+   "Ursula K. Le Guin"
+  ],
+  "first_publish_year": 1969,
+  "genres": [
+   "science fiction"
+  ],
+  "moods": [
+   "thoughtful",
+   "melancholic"
+  ],
+  "tropes": [
+   "journey across ice",
+   "cultural encounter"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "An envoy visits a frozen world whose people have no fixed gender, and must win the trust of a disgraced politician. A quiet novel about friendship, politics and cultural difference."
+ },
+ {
+  "title": "Dune",
+  "authors": [
+   "Frank Herbert"
+  ],
+  "first_publish_year": 1965,
+  "genres": [
+   "science fiction",
+   "epic"
+  ],
+  "moods": [
+   "epic",
+   "political"
+  ],
+  "tropes": [
+   "chosen one",
+   "desert planet",
+   "political intrigue"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "House Atreides takes control of the desert planet Arrakis, the only source of a vital spice, and is betrayed. A young heir must survive among its native people as ecology, religion and empire collide."
+ },
+ {
+  "title": "Neuromancer",
+  "authors": [
+   "William Gibson"
+  ],
+  "first_publish_year": 1984,
+  "genres": [
+   "science fiction",
+   "cyberpunk"
+  ],
+  "moods": [
+   "gritty",
+   "neon"
+  ],
+  "tropes": [
+   "heist",
+   "washed-up hacker",
+   "artificial intelligence"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "A burned-out hacker is hired for one last job that takes him through cyberspace and orbital stations. The book that defined cyberpunk style."
+ },
+ {
+  "title": "Foundation",
+  "authors": [
+   "Isaac Asimov"
+  ],
+  "first_publish_year": 1951,
+  "genres": [
+   "science fiction"
+  ],
+  "moods": [
+   "intellectual",
+   "cerebral"
+  ],
+  "tropes": [
+   "rise and fall of empires",
+   "long-term planning"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A mathematician predicts the collapse of a galactic empire and sets up a colony to shorten the dark age that follows. Linked stories of crises solved by wit rather than force."
+ },
+ {
+  "title": "The Martian",
+  "authors": [
+   "Andy Weir"
+  ],
+  "first_publish_year": 2011,
+  "genres": [
+   "science fiction",
+   "survival"
+  ],
+  "moods": [
+   "funny",
+   "tense"
+  ],
+  "tropes": [
+   "survival",
+   "science problem-solving",
+   "lone survivor"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "An astronaut is stranded on Mars after his crew assumes he is dead. He must engineer food, water and communication to survive until rescue, narrated with dry humour."
+ },
+ {
+  "title": "Project Hail Mary",
+  "authors": [
+   "Andy Weir"
+  ],
+  "first_publish_year": 2021,
+  "genres": [
+   "science fiction"
+  ],
+  "moods": [
+   "optimistic",
+   "tense"
+  ],
+  "tropes": [
+   "unlikely friendship",
+   "science problem-solving",
+   "amnesia"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "A teacher wakes alone on a spaceship with no memory and a mission to save the Earth. Piece by piece he works out what happened and meets an unexpected partner."
+ },
+ {
+  "title": "Station Eleven",
+  "authors": [
+   "Emily St. John Mandel"
+  ],
+  "first_publish_year": 2014,
+  "genres": [
+   "literary fiction",
+   "post-apocalyptic"
+  ],
+  "moods": [
+   "melancholic",
+   "hopeful"
+  ],
+  "tropes": [
+   "found family",
+   "interwoven timelines",
+   "traveling troupe"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "pandemic",
+   "death"
+  ],
+  "description": "After a flu pandemic collapses civilization, a travelling Shakespeare company roams the Great Lakes. Timelines braid together actors, survivors and a prophet around one famous actor."
+ },
+ {
+  "title": "The Handmaid's Tale",
+  "authors": [
+   "Margaret Atwood"
+  ],
+  "first_publish_year": 1985,
+  "genres": [
+   "dystopian",
+   "literary fiction"
+  ],
+  "moods": [
+   "bleak",
+   "tense"
+  ],
+  "tropes": [
+   "oppression",
+   "resistance",
+   "theocracy"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "sexual violence"
+  ],
+  "description": "In the theocratic Republic of Gilead, a woman forced into reproductive servitude recalls her earlier life. A chilling look at control over women's bodies and speech."
+ },
+ {
+  "title": "Nineteen Eighty-Four",
+  "authors": [
+   "George Orwell"
+  ],
+  "first_publish_year": 1949,
+  "genres": [
+   "dystopian",
+   "classic"
+  ],
+  "moods": [
+   "bleak",
+   "paranoid"
+  ],
+  "tropes": [
+   "surveillance",
+   "totalitarianism",
+   "forbidden love"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "torture"
+  ],
+  "description": "Winston Smith works for a regime that watches everyone and rewrites the past. His small acts of rebellion lead to a confrontation with the Party's power."
+ },
+ {
+  "title": "Brave New World",
+  "authors": [
+   "Aldous Huxley"
+  ],
+  "first_publish_year": 1932,
+  "genres": [
+   "dystopian",
+   "science fiction",
+   "classic"
+  ],
+  "moods": [
+   "satirical",
+   "unsettling"
+  ],
+  "tropes": [
+   "engineered society",
+   "outsider"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A World State keeps its citizens content through conditioning, drugs and pleasure. A visitor raised outside it exposes what has been given up."
+ },
+ {
+  "title": "The Road",
+  "authors": [
+   "Cormac McCarthy"
+  ],
+  "first_publish_year": 2006,
+  "genres": [
+   "post-apocalyptic",
+   "literary fiction"
+  ],
+  "moods": [
+   "bleak",
+   "sparse"
+  ],
+  "tropes": [
+   "parent and child",
+   "survival",
+   "journey"
+  ],
+  "pacing": "slow",
+  "content_warnings": [
+   "violence",
+   "cannibalism"
+  ],
+  "description": "A father and son walk south through a burned, ashen America, scavenging and avoiding other survivors. A spare, devastating story about love in a dying world."
+ },
+ {
+  "title": "Beloved",
+  "authors": [
+   "Toni Morrison"
+  ],
+  "first_publish_year": 1987,
+  "genres": [
+   "literary fiction",
+   "historical fiction"
+  ],
+  "moods": [
+   "haunting",
+   "lyrical"
+  ],
+  "tropes": [
+   "ghost story",
+   "trauma and memory"
+  ],
+  "pacing": "slow",
+  "content_warnings": [
+   "slavery",
+   "sexual violence",
+   "infanticide"
+  ],
+  "description": "Sethe, a formerly enslaved woman in Ohio, is haunted by the daughter she lost. As the past returns in bodily form, the novel confronts the legacy of slavery."
+ },
+ {
+  "title": "The Remains of the Day",
+  "authors": [
+   "Kazuo Ishiguro"
+  ],
+  "first_publish_year": 1989,
+  "genres": [
+   "literary fiction",
+   "historical fiction"
+  ],
+  "moods": [
+   "melancholic",
+   "restrained"
+  ],
+  "tropes": [
+   "unreliable narrator",
+   "repressed feelings",
+   "regret"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "An ageing English butler takes a road trip and looks back on his years of service and a missed chance at love. A quiet portrait of duty and self-deception."
+ },
+ {
+  "title": "Never Let Me Go",
+  "authors": [
+   "Kazuo Ishiguro"
+  ],
+  "first_publish_year": 2005,
+  "genres": [
+   "literary fiction",
+   "science fiction"
+  ],
+  "moods": [
+   "melancholic",
+   "eerie"
+  ],
+  "tropes": [
+   "boarding school",
+   "slow reveal",
+   "friendship"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Kathy recalls her childhood at Hailsham, a seemingly idyllic school, and her bond with two friends. The truth about their purpose emerges gently and painfully."
+ },
+ {
+  "title": "Normal People",
+  "authors": [
+   "Sally Rooney"
+  ],
+  "first_publish_year": 2018,
+  "genres": [
+   "contemporary",
+   "romance",
+   "literary fiction"
+  ],
+  "moods": [
+   "intimate",
+   "melancholic"
+  ],
+  "tropes": [
+   "slow burn",
+   "class divide",
+   "miscommunication"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "depression"
+  ],
+  "description": "Connell and Marianne move in and out of each other's lives from school in Ireland through university. A close study of class, power and affection."
+ },
+ {
+  "title": "The Secret History",
+  "authors": [
+   "Donna Tartt"
+  ],
+  "first_publish_year": 1992,
+  "genres": [
+   "literary fiction",
+   "mystery"
+  ],
+  "moods": [
+   "atmospheric",
+   "dark"
+  ],
+  "tropes": [
+   "dark academia",
+   "murder among friends",
+   "elite clique"
+  ],
+  "pacing": "slow",
+  "content_warnings": [
+   "murder"
+  ],
+  "description": "A scholarship student joins a tight group of classics students at a Vermont college. The narrator reveals early that they killed one of their own, and how it happened."
+ },
+ {
+  "title": "Gone Girl",
+  "authors": [
+   "Gillian Flynn"
+  ],
+  "first_publish_year": 2012,
+  "genres": [
+   "thriller",
+   "mystery"
+  ],
+  "moods": [
+   "tense",
+   "twisty"
+  ],
+  "tropes": [
+   "unreliable narrator",
+   "missing wife",
+   "marriage secrets"
+  ],
+  "pacing": "fast",
+  "content_warnings": [
+   "violence"
+  ],
+  "description": "On their anniversary, Amy Dunne disappears and suspicion falls on her husband Nick. Alternating perspectives expose a marriage and the stories each spouse tells."
+ },
+ {
+  "title": "The Girl with the Dragon Tattoo",
+  "authors": [
+   "Stieg Larsson"
+  ],
+  "first_publish_year": 2005,
+  "genres": [
+   "crime",
+   "thriller",
+   "mystery"
+  ],
+  "moods": [
+   "gritty",
+   "tense"
+  ],
+  "tropes": [
+   "cold case",
+   "investigative journalist",
+   "hacker"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "sexual violence"
+  ],
+  "description": "A disgraced journalist and a young hacker investigate a decades-old disappearance in a wealthy Swedish family. A procedural crime novel with dark family history."
+ },
+ {
+  "title": "And Then There Were None",
+  "authors": [
+   "Agatha Christie"
+  ],
+  "first_publish_year": 1939,
+  "genres": [
+   "mystery",
+   "crime",
+   "classic"
+  ],
+  "moods": [
+   "tense",
+   "claustrophobic"
+  ],
+  "tropes": [
+   "closed circle",
+   "whodunit",
+   "island"
+  ],
+  "pacing": "fast",
+  "content_warnings": [
+   "murder"
+  ],
+  "description": "Ten strangers are invited to an island and begin dying according to a nursery rhyme. A masterclass in suspicion and a closed-circle puzzle."
+ },
+ {
+  "title": "The Murder of Roger Ackroyd",
+  "authors": [
+   "Agatha Christie"
+  ],
+  "first_publish_year": 1926,
+  "genres": [
+   "mystery",
+   "crime",
+   "classic"
+  ],
+  "moods": [
+   "clever",
+   "cosy"
+  ],
+  "tropes": [
+   "whodunit",
+   "twist ending",
+   "village setting"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "murder"
+  ],
+  "description": "Hercule Poirot, in retirement in a quiet village, investigates the stabbing of a wealthy man. Famous for its surprising solution."
+ },
+ {
+  "title": "The Hound of the Baskervilles",
+  "authors": [
+   "Arthur Conan Doyle"
+  ],
+  "first_publish_year": 1902,
+  "genres": [
+   "mystery",
+   "crime",
+   "classic"
+  ],
+  "moods": [
+   "atmospheric",
+   "eerie"
+  ],
+  "tropes": [
+   "whodunit",
+   "legend",
+   "moorland"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Sherlock Holmes and Dr Watson investigate a family curse involving a spectral hound on Dartmoor. A mix of detective logic and gothic atmosphere."
+ },
+ {
+  "title": "The Name of the Rose",
+  "authors": [
+   "Umberto Eco"
+  ],
+  "first_publish_year": 1980,
+  "genres": [
+   "historical fiction",
+   "mystery"
+  ],
+  "moods": [
+   "atmospheric",
+   "cerebral"
+  ],
+  "tropes": [
+   "monastery",
+   "detective monk",
+   "locked library"
+  ],
+  "pacing": "slow",
+  "content_warnings": [
+   "murder"
+  ],
+  "description": "A Franciscan friar and his novice investigate a series of deaths at a medieval Italian abbey. A mystery loaded with theology, semiotics and books."
+ },
+ {
+  "title": "The Night Circus",
+  "authors": [
+   "Erin Morgenstern"
+  ],
+  "first_publish_year": 2011,
+  "genres": [
+   "fantasy",
+   "romance"
+  ],
+  "moods": [
+   "lush",
+   "whimsical"
+  ],
+  "tropes": [
+   "rivals to lovers",
+   "magical competition",
+   "circus"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Two young illusionists are bound to a lifelong magical duel staged inside a travelling circus open only at night. A dreamy, sensory romance."
+ },
+ {
+  "title": "Circe",
+  "authors": [
+   "Madeline Miller"
+  ],
+  "first_publish_year": 2018,
+  "genres": [
+   "fantasy",
+   "mythology"
+  ],
+  "moods": [
+   "lyrical",
+   "feminist"
+  ],
+  "tropes": [
+   "mythological retelling",
+   "witch",
+   "found independence"
+  ],
+  "pacing": "slow",
+  "content_warnings": [
+   "sexual violence"
+  ],
+  "description": "The witch Circe, banished to an island, hones her craft and meets gods and heroes including Odysseus. A myth retold from a woman's perspective."
+ },
+ {
+  "title": "The Song of Achilles",
+  "authors": [
+   "Madeline Miller"
+  ],
+  "first_publish_year": 2011,
+  "genres": [
+   "mythology",
+   "romance",
+   "historical fiction"
+  ],
+  "moods": [
+   "tragic",
+   "lyrical"
+  ],
+  "tropes": [
+   "retelling",
+   "star-crossed lovers",
+   "war"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "war violence"
+  ],
+  "description": "Patroclus recounts his life and love for Achilles from boyhood through the Trojan War. A tender, tragic retelling of the Iliad."
+ },
+ {
+  "title": "Piranesi",
+  "authors": [
+   "Susanna Clarke"
+  ],
+  "first_publish_year": 2020,
+  "genres": [
+   "fantasy",
+   "mystery"
+  ],
+  "moods": [
+   "dreamlike",
+   "puzzling"
+  ],
+  "tropes": [
+   "endless house",
+   "amnesia",
+   "hidden truth"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Piranesi lives in a vast house of statues and tides and records its wonders in his journals. When strangers appear, the truth about his world begins to unravel."
+ },
+ {
+  "title": "Jonathan Strange & Mr Norrell",
+  "authors": [
+   "Susanna Clarke"
+  ],
+  "first_publish_year": 2004,
+  "genres": [
+   "fantasy",
+   "historical fiction"
+  ],
+  "moods": [
+   "wry",
+   "atmospheric"
+  ],
+  "tropes": [
+   "magic returns to England",
+   "rival magicians",
+   "footnotes"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Two magicians revive English magic during the Napoleonic Wars, and their partnership turns to rivalry. Written in the style of a nineteenth-century novel."
+ },
+ {
+  "title": "The Name of the Wind",
+  "authors": [
+   "Patrick Rothfuss"
+  ],
+  "first_publish_year": 2007,
+  "genres": [
+   "fantasy"
+  ],
+  "moods": [
+   "lyrical",
+   "immersive"
+  ],
+  "tropes": [
+   "magic school",
+   "gifted orphan",
+   "framed narrative"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Innkeeper Kvothe tells the story of his life: a travelling performer's son orphaned young, who becomes a prodigy at a university of magic."
+ },
+ {
+  "title": "Mistborn: The Final Empire",
+  "authors": [
+   "Brandon Sanderson"
+  ],
+  "first_publish_year": 2006,
+  "genres": [
+   "fantasy"
+  ],
+  "moods": [
+   "energetic",
+   "hopeful"
+  ],
+  "tropes": [
+   "heist",
+   "rebellion",
+   "hidden powers"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "A street thief discovers she has rare magical powers and joins a crew plotting to overthrow an immortal tyrant. A heist plot with a detailed metal-based magic system."
+ },
+ {
+  "title": "Good Omens",
+  "authors": [
+   "Terry Pratchett",
+   "Neil Gaiman"
+  ],
+  "first_publish_year": 1990,
+  "genres": [
+   "fantasy",
+   "comedy"
+  ],
+  "moods": [
+   "funny",
+   "irreverent"
+  ],
+  "tropes": [
+   "odd couple",
+   "apocalypse",
+   "angel and demon"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "An angel and a demon who like living on Earth team up to prevent the end of the world after the Antichrist is mislaid. A comic apocalypse."
+ },
+ {
+  "title": "The Hitchhiker's Guide to the Galaxy",
+  "authors": [
+   "Douglas Adams"
+  ],
+  "first_publish_year": 1979,
+  "genres": [
+   "science fiction",
+   "comedy"
+  ],
+  "moods": [
+   "funny",
+   "absurd"
+  ],
+  "tropes": [
+   "accidental adventurer",
+   "space travel"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "Moments before Earth is demolished, Arthur Dent is whisked into space by a friend who turns out to be an alien. A farcical tour of the galaxy."
+ },
+ {
+  "title": "American Gods",
+  "authors": [
+   "Neil Gaiman"
+  ],
+  "first_publish_year": 2001,
+  "genres": [
+   "fantasy"
+  ],
+  "moods": [
+   "atmospheric",
+   "dark"
+  ],
+  "tropes": [
+   "road trip",
+   "old gods vs new",
+   "con man"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "violence"
+  ],
+  "description": "Shadow, released from prison, becomes the bodyguard of a mysterious old man and is drawn into a war between old gods and new ones across America."
+ },
+ {
+  "title": "The Kite Runner",
+  "authors": [
+   "Khaled Hosseini"
+  ],
+  "first_publish_year": 2003,
+  "genres": [
+   "literary fiction",
+   "historical fiction"
+  ],
+  "moods": [
+   "emotional",
+   "sombre"
+  ],
+  "tropes": [
+   "redemption",
+   "friendship betrayed",
+   "guilt"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "sexual violence",
+   "war"
+  ],
+  "description": "Amir, a privileged boy in Kabul, betrays his loyal friend Hassan. Years later in America he is offered a chance to atone."
+ },
+ {
+  "title": "Where the Crawdads Sing",
+  "authors": [
+   "Delia Owens"
+  ],
+  "first_publish_year": 2018,
+  "genres": [
+   "mystery",
+   "coming of age"
+  ],
+  "moods": [
+   "atmospheric",
+   "wistful"
+  ],
+  "tropes": [
+   "isolated heroine",
+   "murder trial",
+   "nature"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Kya grows up alone in the North Carolina marshes, shunned by the nearby town. Years later she is the main suspect when a local man is found dead."
+ },
+ {
+  "title": "The Hunger Games",
+  "authors": [
+   "Suzanne Collins"
+  ],
+  "first_publish_year": 2008,
+  "genres": [
+   "young adult",
+   "dystopian"
+  ],
+  "moods": [
+   "tense",
+   "gripping"
+  ],
+  "tropes": [
+   "survival game",
+   "sacrifice",
+   "rebellion"
+  ],
+  "pacing": "fast",
+  "content_warnings": [
+   "violence"
+  ],
+  "description": "In a dystopian nation, teenager Katniss volunteers to take her sister's place in a televised fight to the death. A fast story about power and survival."
+ },
+ {
+  "title": "Anne of Green Gables",
+  "authors": [
+   "L. M. Montgomery"
+  ],
+  "first_publish_year": 1908,
+  "genres": [
+   "classic",
+   "coming of age"
+  ],
+  "moods": [
+   "warm",
+   "cozy"
+  ],
+  "tropes": [
+   "orphan",
+   "found family",
+   "small town"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "An imaginative orphan girl is mistakenly sent to an elderly brother and sister on Prince Edward Island. A warm story of growing up and belonging."
+ },
+ {
+  "title": "Little Women",
+  "authors": [
+   "Louisa May Alcott"
+  ],
+  "first_publish_year": 1868,
+  "genres": [
+   "classic",
+   "coming of age"
+  ],
+  "moods": [
+   "warm",
+   "nostalgic"
+  ],
+  "tropes": [
+   "sisters",
+   "family bonds",
+   "aspiring writer"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "The four March sisters grow up in New England during and after the Civil War, each chasing her own ambitions. Jo wants to be a writer."
+ },
+ {
+  "title": "The Lies of Locke Lamora",
+  "authors": [
+   "Scott Lynch"
+  ],
+  "first_publish_year": 2006,
+  "genres": [
+   "fantasy"
+  ],
+  "moods": [
+   "witty",
+   "gritty"
+  ],
+  "tropes": [
+   "heist",
+   "found family",
+   "con artists"
+  ],
+  "pacing": "fast",
+  "content_warnings": [
+   "violence"
+  ],
+  "description": "Locke Lamora leads a crew of thieves in a canal-laced fantasy city, until a rival schemer threatens everything. Heists, banter and betrayal."
+ },
+ {
+  "title": "Gideon the Ninth",
+  "authors": [
+   "Tamsyn Muir"
+  ],
+  "first_publish_year": 2019,
+  "genres": [
+   "science fiction",
+   "fantasy",
+   "horror"
+  ],
+  "moods": [
+   "funny",
+   "macabre"
+  ],
+  "tropes": [
+   "locked-room mystery",
+   "necromancers",
+   "reluctant allies"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "Swordswoman Gideon is dragged into a deadly trial in a decaying gothic mansion by her rival, a necromancer heir. Skeletons, snark and mystery."
+ },
+ {
+  "title": "Kindred",
+  "authors": [
+   "Octavia E. Butler"
+  ],
+  "first_publish_year": 1979,
+  "genres": [
+   "science fiction",
+   "historical fiction"
+  ],
+  "moods": [
+   "tense",
+   "sombre"
+  ],
+  "tropes": [
+   "time travel",
+   "survival"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "slavery",
+   "violence"
+  ],
+  "description": "Dana, a Black woman in 1970s California, is repeatedly pulled back in time to a Maryland plantation. A novel about survival and the legacy of slavery."
+ },
+ {
+  "title": "Parable of the Sower",
+  "authors": [
+   "Octavia E. Butler"
+  ],
+  "first_publish_year": 1993,
+  "genres": [
+   "dystopian",
+   "science fiction"
+  ],
+  "moods": [
+   "bleak",
+   "hopeful"
+  ],
+  "tropes": [
+   "survival",
+   "journey",
+   "new belief system"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "violence"
+  ],
+  "description": "In a collapsing California, a teenager with hyperempathy forms a belief system called Earthseed and leads others north to safety."
+ },
+ {
+  "title": "Pachinko",
+  "authors": [
+   "Min Jin Lee"
+  ],
+  "first_publish_year": 2017,
+  "genres": [
+   "historical fiction",
+   "literary fiction"
+  ],
+  "moods": [
+   "sweeping",
+   "emotional"
+  ],
+  "tropes": [
+   "multigenerational saga",
+   "immigrant story"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "A Korean family endures discrimination and hardship in Japan across four generations, beginning with a girl in a fishing village."
+ },
+ {
+  "title": "Wolf Hall",
+  "authors": [
+   "Hilary Mantel"
+  ],
+  "first_publish_year": 2009,
+  "genres": [
+   "historical fiction"
+  ],
+  "moods": [
+   "immersive",
+   "wry"
+  ],
+  "tropes": [
+   "court intrigue",
+   "rise of a commoner"
+  ],
+  "pacing": "slow",
+  "content_warnings": [],
+  "description": "Thomas Cromwell, a blacksmith's son, rises in the court of Henry VIII during the king's attempt to end his marriage. Political fiction in a close present tense."
+ },
+ {
+  "title": "Mexican Gothic",
+  "authors": [
+   "Silvia Moreno-Garcia"
+  ],
+  "first_publish_year": 2020,
+  "genres": [
+   "gothic",
+   "horror"
+  ],
+  "moods": [
+   "atmospheric",
+   "creepy"
+  ],
+  "tropes": [
+   "haunted house",
+   "family secrets",
+   "cult"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A socialite travels to a decaying mansion in the Mexican countryside to check on her cousin. The house and its family hide something sinister."
+ },
+ {
+  "title": "The Haunting of Hill House",
+  "authors": [
+   "Shirley Jackson"
+  ],
+  "first_publish_year": 1959,
+  "genres": [
+   "horror",
+   "gothic",
+   "classic"
+  ],
+  "moods": [
+   "eerie",
+   "psychological"
+  ],
+  "tropes": [
+   "haunted house",
+   "fragile narrator"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Four people spend a summer in a notoriously haunted mansion as part of a paranormal study. Eleanor, the loneliest, begins to feel that the house wants her."
+ },
+ {
+  "title": "Eleanor Oliphant Is Completely Fine",
+  "authors": [
+   "Gail Honeyman"
+  ],
+  "first_publish_year": 2017,
+  "genres": [
+   "contemporary",
+   "literary fiction"
+  ],
+  "moods": [
+   "warm",
+   "poignant"
+  ],
+  "tropes": [
+   "found family",
+   "lonely misfit",
+   "healing"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "mental health",
+   "childhood trauma"
+  ],
+  "description": "Eleanor lives a routine, isolated life until an act of kindness at work begins to draw her out. Her past slowly comes into view."
+ },
+ {
+  "title": "Beach Read",
+  "authors": [
+   "Emily Henry"
+  ],
+  "first_publish_year": 2020,
+  "genres": [
+   "romance",
+   "contemporary"
+  ],
+  "moods": [
+   "funny",
+   "warm"
+  ],
+  "tropes": [
+   "enemies to lovers",
+   "rival writers",
+   "writing swap"
+  ],
+  "pacing": "fast",
+  "content_warnings": [
+   "grief"
+  ],
+  "description": "A romance writer and a literary novelist who live next door make a bet to swap genres over one summer. Banter becomes something more."
+ },
+ {
+  "title": "The Seven Husbands of Evelyn Hugo",
+  "authors": [
+   "Taylor Jenkins Reid"
+  ],
+  "first_publish_year": 2017,
+  "genres": [
+   "historical fiction",
+   "contemporary",
+   "romance"
+  ],
+  "moods": [
+   "glamorous",
+   "emotional"
+  ],
+  "tropes": [
+   "secret past",
+   "old Hollywood",
+   "reclusive star"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "An ageing film star chooses an unknown journalist to write her biography and recounts her seven marriages and her secrets."
+ },
+ {
+  "title": "Red, White & Royal Blue",
+  "authors": [
+   "Casey McQuiston"
+  ],
+  "first_publish_year": 2019,
+  "genres": [
+   "romance",
+   "contemporary"
+  ],
+  "moods": [
+   "funny",
+   "warm"
+  ],
+  "tropes": [
+   "enemies to lovers",
+   "secret relationship",
+   "politics"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "The son of the US president and a British prince, forced to fake a friendship after a public incident, fall for each other."
+ },
+ {
+  "title": "The Alchemist",
+  "authors": [
+   "Paulo Coelho"
+  ],
+  "first_publish_year": 1988,
+  "genres": [
+   "fable",
+   "adventure"
+  ],
+  "moods": [
+   "reflective",
+   "hopeful"
+  ],
+  "tropes": [
+   "journey",
+   "following your destiny"
+  ],
+  "pacing": "fast",
+  "content_warnings": [],
+  "description": "A shepherd boy in Spain travels to Egypt in search of treasure, guided by omens and an alchemist. A parable about listening to your heart."
+ },
+ {
+  "title": "Sapiens",
+  "authors": [
+   "Yuval Noah Harari"
+  ],
+  "first_publish_year": 2011,
+  "genres": [
+   "nonfiction",
+   "history"
+  ],
+  "moods": [
+   "thought-provoking",
+   "accessible"
+  ],
+  "tropes": [
+   "big picture",
+   "human history"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "A sweeping history of the human species from the Cognitive Revolution to the present, ranging across agriculture, money, empires and science."
+ },
+ {
+  "title": "The Immortal Life of Henrietta Lacks",
+  "authors": [
+   "Rebecca Skloot"
+  ],
+  "first_publish_year": 2010,
+  "genres": [
+   "nonfiction",
+   "science"
+  ],
+  "moods": [
+   "emotional",
+   "investigative"
+  ],
+  "tropes": [
+   "medical ethics",
+   "family story"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "racism"
+  ],
+  "description": "The story of the woman whose cells became the HeLa line used throughout science, and of her family, who knew nothing about it for decades."
+ },
+ {
+  "title": "Educated",
+  "authors": [
+   "Tara Westover"
+  ],
+  "first_publish_year": 2018,
+  "genres": [
+   "nonfiction",
+   "memoir"
+  ],
+  "moods": [
+   "inspiring",
+   "tense"
+  ],
+  "tropes": [
+   "self-education",
+   "difficult family"
+  ],
+  "pacing": "medium",
+  "content_warnings": [
+   "abuse"
+  ],
+  "description": "A memoir about growing up in a survivalist family in Idaho without formal schooling, and the author's path to university."
+ },
+ {
+  "title": "A Brief History of Time",
+  "authors": [
+   "Stephen Hawking"
+  ],
+  "first_publish_year": 1988,
+  "genres": [
+   "nonfiction",
+   "science"
+  ],
+  "moods": [
+   "curious",
+   "accessible"
+  ],
+  "tropes": [
+   "cosmology for general readers"
+  ],
+  "pacing": "medium",
+  "content_warnings": [],
+  "description": "Hawking explains ideas about the Big Bang, black holes and the nature of time for readers without a physics background."
+ }
+]

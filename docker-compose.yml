@@ -1,0 +1,49 @@
+# Local stack: PostgreSQL + pgvector, API, and the web app (nginx serving the built SPA and proxying /api).
+#   cp .env.example .env && docker compose up --build
+# Web: http://localhost:8080   API docs: http://localhost:8000/api/v1/docs
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-shelfsense}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-shelfsense}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-shelfsense} -d ${POSTGRES_DB:-shelfsense}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: ./backend
+      args:
+        EMBEDDINGS: ${BUILD_EMBEDDINGS:-1}
+    env_file: .env
+    environment:
+      SHELFSENSE_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-shelfsense}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-shelfsense}
+      SHELFSENSE_CORS_ORIGINS: http://localhost:8080,http://localhost:5173
+      HF_HOME: /models
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - models:/models   # embedding model cache (downloaded on first start)
+
+  web:
+    build: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "127.0.0.1:8080:80"
+
+volumes:
+  pgdata:
+  models:

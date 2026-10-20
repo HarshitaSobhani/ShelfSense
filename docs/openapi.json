@@ -1,0 +1,2716 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "ShelfSense API",
+  "version": "0.1.0"
+ },
+ "paths": {
+  "/api/v1/health": {
+   "get": {
+    "tags": [
+     "health"
+    ],
+    "summary": "Health",
+    "description": "Liveness plus honest capability report: semantic search is listed active only if a model is loaded\nand a vector column exists.",
+    "operationId": "health_api_v1_health_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/register": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Register",
+    "operationId": "register_api_v1_auth_register_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RegisterIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/AuthOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/login": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Login",
+    "operationId": "login_api_v1_auth_login_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LoginIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/AuthOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/auth/logout": {
+   "post": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Logout",
+    "operationId": "logout_api_v1_auth_logout_post",
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     }
+    }
+   }
+  },
+  "/api/v1/auth/me": {
+   "get": {
+    "tags": [
+     "auth"
+    ],
+    "summary": "Me",
+    "operationId": "me_api_v1_auth_me_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/UserOut"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/me/preferences": {
+   "get": {
+    "tags": [
+     "preferences"
+    ],
+    "summary": "Get Prefs",
+    "operationId": "get_prefs_api_v1_me_preferences_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PreferencesIO"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "preferences"
+    ],
+    "summary": "Put Prefs",
+    "operationId": "put_prefs_api_v1_me_preferences_put",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PreferencesIO"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PreferencesIO"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Browse",
+    "operationId": "browse_api_v1_books_get",
+    "parameters": [
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 1000,
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 12,
+       "title": "Page Size"
+      }
+     },
+     {
+      "name": "sort",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "title",
+        "year_desc",
+        "year_asc",
+        "recent"
+       ],
+       "type": "string",
+       "default": "title",
+       "title": "Sort"
+      }
+     },
+     {
+      "name": "genre",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Genre"
+      }
+     },
+     {
+      "name": "mood",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Mood"
+      }
+     },
+     {
+      "name": "trope",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Trope"
+      }
+     },
+     {
+      "name": "avoid",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Avoid"
+      }
+     },
+     {
+      "name": "pacing",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "slow",
+          "medium",
+          "fast"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Pacing"
+      }
+     },
+     {
+      "name": "year_min",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Min"
+      }
+     },
+     {
+      "name": "year_max",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Max"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/BrowseOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/search": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Search Books",
+    "operationId": "search_books_api_v1_books_search_get",
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "minLength": 2,
+       "maxLength": 300,
+       "title": "Q"
+      }
+     },
+     {
+      "name": "mode",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "enum": [
+        "auto",
+        "hybrid",
+        "semantic",
+        "keyword"
+       ],
+       "type": "string",
+       "default": "auto",
+       "title": "Mode"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 1000,
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 12,
+       "title": "Page Size"
+      }
+     },
+     {
+      "name": "genre",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Genre"
+      }
+     },
+     {
+      "name": "mood",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Mood"
+      }
+     },
+     {
+      "name": "trope",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Trope"
+      }
+     },
+     {
+      "name": "avoid",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Avoid"
+      }
+     },
+     {
+      "name": "pacing",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "slow",
+          "medium",
+          "fast"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Pacing"
+      }
+     },
+     {
+      "name": "year_min",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Min"
+      }
+     },
+     {
+      "name": "year_max",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Max"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SearchOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/facets": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Facets",
+    "operationId": "facets_api_v1_books_facets_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/FacetsOut"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/{book_id}": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Book Detail",
+    "operationId": "book_detail_api_v1_books__book_id__get",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/BookOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/{book_id}/similar": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Similar Books",
+    "operationId": "similar_books_api_v1_books__book_id__similar_get",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 24,
+       "minimum": 1,
+       "default": 8,
+       "title": "Limit"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SearchOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/recommendations": {
+   "get": {
+    "tags": [
+     "books"
+    ],
+    "summary": "Recommendations",
+    "operationId": "recommendations_api_v1_recommendations_get",
+    "parameters": [
+     {
+      "name": "exclude_read",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": true,
+       "title": "Exclude Read"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 1000,
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 50,
+       "minimum": 1,
+       "default": 12,
+       "title": "Page Size"
+      }
+     },
+     {
+      "name": "genre",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Genre"
+      }
+     },
+     {
+      "name": "mood",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Mood"
+      }
+     },
+     {
+      "name": "trope",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Trope"
+      }
+     },
+     {
+      "name": "avoid",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "maxItems": 20
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Avoid"
+      }
+     },
+     {
+      "name": "pacing",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "slow",
+          "medium",
+          "fast"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Pacing"
+      }
+     },
+     {
+      "name": "year_min",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Min"
+      }
+     },
+     {
+      "name": "year_max",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "type": "integer",
+         "maximum": 3000,
+         "minimum": -3000
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Year Max"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SearchOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/library": {
+   "get": {
+    "tags": [
+     "library"
+    ],
+    "summary": "List Library",
+    "operationId": "list_library_api_v1_library_get",
+    "parameters": [
+     {
+      "name": "status",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "anyOf": [
+        {
+         "enum": [
+          "want_to_read",
+          "reading",
+          "completed",
+          "on_hold"
+         ],
+         "type": "string"
+        },
+        {
+         "type": "null"
+        }
+       ],
+       "title": "Status"
+      }
+     },
+     {
+      "name": "page",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 1000,
+       "minimum": 1,
+       "default": 1,
+       "title": "Page"
+      }
+     },
+     {
+      "name": "page_size",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 100,
+       "minimum": 1,
+       "default": 24,
+       "title": "Page Size"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Add To Library",
+    "operationId": "add_to_library_api_v1_library_post",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LibraryAddIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/EntryOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/me/books/{book_id}": {
+   "get": {
+    "tags": [
+     "library"
+    ],
+    "summary": "My Book State",
+    "operationId": "my_book_state_api_v1_me_books__book_id__get",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/library/{book_id}/status": {
+   "put": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Set Status",
+    "operationId": "set_status_api_v1_library__book_id__status_put",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/LibraryStatusIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/EntryOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/library/{book_id}/progress": {
+   "patch": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Set Progress",
+    "operationId": "set_progress_api_v1_library__book_id__progress_patch",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ProgressIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/EntryOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/library/{book_id}": {
+   "delete": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Remove From Library",
+    "operationId": "remove_from_library_api_v1_library__book_id__delete",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/{book_id}/rating": {
+   "put": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Put Rating",
+    "operationId": "put_rating_api_v1_books__book_id__rating_put",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RatingIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Delete Rating",
+    "operationId": "delete_rating_api_v1_books__book_id__rating_delete",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/books/{book_id}/notes": {
+   "get": {
+    "tags": [
+     "library"
+    ],
+    "summary": "List Notes",
+    "operationId": "list_notes_api_v1_books__book_id__notes_get",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/NoteOut"
+         },
+         "title": "Response List Notes Api V1 Books  Book Id  Notes Get"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Create Note",
+    "operationId": "create_note_api_v1_books__book_id__notes_post",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/NoteIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/NoteOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/notes/{note_id}": {
+   "put": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Update Note",
+    "operationId": "update_note_api_v1_notes__note_id__put",
+    "parameters": [
+     {
+      "name": "note_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Note Id"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/NoteIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/NoteOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Delete Note",
+    "operationId": "delete_note_api_v1_notes__note_id__delete",
+    "parameters": [
+     {
+      "name": "note_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Note Id"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/goals": {
+   "get": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Get Goal",
+    "operationId": "get_goal_api_v1_goals_get",
+    "parameters": [
+     {
+      "name": "year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 2200,
+       "minimum": 1900,
+       "default": 2026,
+       "title": "Year"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GoalOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "library"
+    ],
+    "summary": "Put Goal",
+    "operationId": "put_goal_api_v1_goals_put",
+    "parameters": [
+     {
+      "name": "year",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "maximum": 2200,
+       "minimum": 1900,
+       "default": 2026,
+       "title": "Year"
+      }
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GoalIn"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GoalOut"
+        }
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/import/openlibrary": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Import Openlibrary",
+    "operationId": "import_openlibrary_api_v1_admin_import_openlibrary_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ImportIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/books/{book_id}/refresh": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Refresh Book",
+    "operationId": "refresh_book_api_v1_admin_books__book_id__refresh_post",
+    "parameters": [
+     {
+      "name": "book_id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "title": "Book Id"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/admin/embeddings/rebuild": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Rebuild",
+    "operationId": "rebuild_api_v1_admin_embeddings_rebuild_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/RebuildIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/evaluation/runs": {
+   "get": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Evaluation Runs",
+    "operationId": "evaluation_runs_api_v1_evaluation_runs_get",
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/evaluation/run": {
+   "post": {
+    "tags": [
+     "admin"
+    ],
+    "summary": "Evaluation Run",
+    "operationId": "evaluation_run_api_v1_evaluation_run_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/EvalRunIn"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "Successful Response",
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      }
+     },
+     "422": {
+      "description": "Validation Error",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "AuthOut": {
+    "properties": {
+     "user": {
+      "$ref": "#/components/schemas/UserOut"
+     },
+     "csrf_token": {
+      "type": "string",
+      "title": "Csrf Token"
+     }
+    },
+    "type": "object",
+    "required": [
+     "user",
+     "csrf_token"
+    ],
+    "title": "AuthOut"
+   },
+   "BookOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "slug": {
+      "type": "string",
+      "title": "Slug"
+     },
+     "title": {
+      "type": "string",
+      "title": "Title"
+     },
+     "subtitle": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Subtitle"
+     },
+     "description": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Description"
+     },
+     "first_publish_year": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "First Publish Year"
+     },
+     "page_count": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Page Count"
+     },
+     "cover_url": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cover Url"
+     },
+     "pacing": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pacing"
+     },
+     "authors": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Authors"
+     },
+     "genres": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Genres"
+     },
+     "moods": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Moods"
+     },
+     "tropes": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Tropes"
+     },
+     "content_warnings": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array",
+      "title": "Content Warnings"
+     },
+     "source": {
+      "type": "string",
+      "title": "Source"
+     },
+     "has_embedding": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Has Embedding"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "slug",
+     "title",
+     "subtitle",
+     "description",
+     "first_publish_year",
+     "page_count",
+     "cover_url",
+     "pacing",
+     "authors",
+     "genres",
+     "moods",
+     "tropes",
+     "content_warnings",
+     "source"
+    ],
+    "title": "BookOut"
+   },
+   "BrowseOut": {
+    "properties": {
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/BookOut"
+      },
+      "type": "array",
+      "title": "Items"
+     },
+     "meta": {
+      "$ref": "#/components/schemas/Page"
+     }
+    },
+    "type": "object",
+    "required": [
+     "items",
+     "meta"
+    ],
+    "title": "BrowseOut"
+   },
+   "EntryOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "book": {
+      "$ref": "#/components/schemas/BookOut"
+     },
+     "status": {
+      "type": "string",
+      "title": "Status"
+     },
+     "progress_percent": {
+      "type": "integer",
+      "title": "Progress Percent"
+     },
+     "current_page": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Current Page"
+     },
+     "started_at": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Started At"
+     },
+     "finished_at": {
+      "anyOf": [
+       {
+        "type": "string",
+        "format": "date"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Finished At"
+     },
+     "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At"
+     },
+     "rating": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rating"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "book",
+     "status",
+     "progress_percent",
+     "current_page",
+     "started_at",
+     "finished_at",
+     "updated_at"
+    ],
+    "title": "EntryOut"
+   },
+   "EvalRunIn": {
+    "properties": {
+     "k": {
+      "type": "integer",
+      "maximum": 20.0,
+      "minimum": 1.0,
+      "title": "K",
+      "default": 5
+     }
+    },
+    "type": "object",
+    "title": "EvalRunIn"
+   },
+   "FacetItem": {
+    "properties": {
+     "name": {
+      "type": "string",
+      "title": "Name"
+     },
+     "count": {
+      "type": "integer",
+      "title": "Count"
+     }
+    },
+    "type": "object",
+    "required": [
+     "name",
+     "count"
+    ],
+    "title": "FacetItem"
+   },
+   "FacetsOut": {
+    "properties": {
+     "genres": {
+      "items": {
+       "$ref": "#/components/schemas/FacetItem"
+      },
+      "type": "array",
+      "title": "Genres"
+     },
+     "moods": {
+      "items": {
+       "$ref": "#/components/schemas/FacetItem"
+      },
+      "type": "array",
+      "title": "Moods"
+     },
+     "tropes": {
+      "items": {
+       "$ref": "#/components/schemas/FacetItem"
+      },
+      "type": "array",
+      "title": "Tropes"
+     },
+     "content_warnings": {
+      "items": {
+       "$ref": "#/components/schemas/FacetItem"
+      },
+      "type": "array",
+      "title": "Content Warnings"
+     },
+     "pacing": {
+      "items": {
+       "$ref": "#/components/schemas/FacetItem"
+      },
+      "type": "array",
+      "title": "Pacing"
+     },
+     "year_min": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Year Min"
+     },
+     "year_max": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Year Max"
+     }
+    },
+    "type": "object",
+    "required": [
+     "genres",
+     "moods",
+     "tropes",
+     "content_warnings",
+     "pacing",
+     "year_min",
+     "year_max"
+    ],
+    "title": "FacetsOut"
+   },
+   "GoalIn": {
+    "properties": {
+     "target_books": {
+      "type": "integer",
+      "maximum": 1000.0,
+      "minimum": 1.0,
+      "title": "Target Books"
+     }
+    },
+    "type": "object",
+    "required": [
+     "target_books"
+    ],
+    "title": "GoalIn"
+   },
+   "GoalOut": {
+    "properties": {
+     "year": {
+      "type": "integer",
+      "title": "Year"
+     },
+     "target_books": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Target Books"
+     },
+     "completed": {
+      "type": "integer",
+      "title": "Completed"
+     }
+    },
+    "type": "object",
+    "required": [
+     "year",
+     "target_books",
+     "completed"
+    ],
+    "title": "GoalOut"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "type": "array",
+      "title": "Detail"
+     }
+    },
+    "type": "object",
+    "title": "HTTPValidationError"
+   },
+   "ImportIn": {
+    "properties": {
+     "query": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 2,
+      "title": "Query"
+     },
+     "limit": {
+      "type": "integer",
+      "maximum": 25.0,
+      "minimum": 1.0,
+      "title": "Limit",
+      "default": 10
+     }
+    },
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "title": "ImportIn"
+   },
+   "LibraryAddIn": {
+    "properties": {
+     "book_id": {
+      "type": "integer",
+      "title": "Book Id"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "want_to_read",
+       "reading",
+       "completed",
+       "on_hold"
+      ],
+      "title": "Status",
+      "default": "want_to_read"
+     }
+    },
+    "type": "object",
+    "required": [
+     "book_id"
+    ],
+    "title": "LibraryAddIn"
+   },
+   "LibraryStatusIn": {
+    "properties": {
+     "status": {
+      "type": "string",
+      "enum": [
+       "want_to_read",
+       "reading",
+       "completed",
+       "on_hold"
+      ],
+      "title": "Status"
+     }
+    },
+    "type": "object",
+    "required": [
+     "status"
+    ],
+    "title": "LibraryStatusIn"
+   },
+   "LoginIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Password"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password"
+    ],
+    "title": "LoginIn"
+   },
+   "NoteIn": {
+    "properties": {
+     "body": {
+      "type": "string",
+      "maxLength": 5000,
+      "minLength": 1,
+      "title": "Body"
+     }
+    },
+    "type": "object",
+    "required": [
+     "body"
+    ],
+    "title": "NoteIn"
+   },
+   "NoteOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "book_id": {
+      "type": "integer",
+      "title": "Book Id"
+     },
+     "body": {
+      "type": "string",
+      "title": "Body"
+     },
+     "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Created At"
+     },
+     "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Updated At"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "book_id",
+     "body",
+     "created_at",
+     "updated_at"
+    ],
+    "title": "NoteOut"
+   },
+   "Page": {
+    "properties": {
+     "page": {
+      "type": "integer",
+      "title": "Page"
+     },
+     "page_size": {
+      "type": "integer",
+      "title": "Page Size"
+     },
+     "total": {
+      "type": "integer",
+      "title": "Total"
+     },
+     "pages": {
+      "type": "integer",
+      "title": "Pages"
+     }
+    },
+    "type": "object",
+    "required": [
+     "page",
+     "page_size",
+     "total",
+     "pages"
+    ],
+    "title": "Page"
+   },
+   "PreferencesIO": {
+    "properties": {
+     "genres": {
+      "items": {
+       "type": "string",
+       "maxLength": 80,
+       "minLength": 1
+      },
+      "type": "array",
+      "maxItems": 30,
+      "title": "Genres"
+     },
+     "moods": {
+      "items": {
+       "type": "string",
+       "maxLength": 80,
+       "minLength": 1
+      },
+      "type": "array",
+      "maxItems": 30,
+      "title": "Moods"
+     },
+     "tropes": {
+      "items": {
+       "type": "string",
+       "maxLength": 80,
+       "minLength": 1
+      },
+      "type": "array",
+      "maxItems": 30,
+      "title": "Tropes"
+     },
+     "avoid_content_warnings": {
+      "items": {
+       "type": "string",
+       "maxLength": 80,
+       "minLength": 1
+      },
+      "type": "array",
+      "maxItems": 30,
+      "title": "Avoid Content Warnings"
+     },
+     "pacing": {
+      "anyOf": [
+       {
+        "type": "string",
+        "enum": [
+         "slow",
+         "medium",
+         "fast"
+        ]
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Pacing"
+     }
+    },
+    "type": "object",
+    "title": "PreferencesIO"
+   },
+   "ProgressIn": {
+    "properties": {
+     "current_page": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 100000.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Current Page"
+     },
+     "progress_percent": {
+      "anyOf": [
+       {
+        "type": "integer",
+        "maximum": 100.0,
+        "minimum": 0.0
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Progress Percent"
+     }
+    },
+    "type": "object",
+    "title": "ProgressIn"
+   },
+   "RankedBook": {
+    "properties": {
+     "book": {
+      "$ref": "#/components/schemas/BookOut"
+     },
+     "score": {
+      "type": "number",
+      "title": "Score"
+     },
+     "explanation": {
+      "type": "string",
+      "title": "Explanation"
+     },
+     "factors": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "type": "array",
+      "title": "Factors"
+     }
+    },
+    "type": "object",
+    "required": [
+     "book",
+     "score",
+     "explanation",
+     "factors"
+    ],
+    "title": "RankedBook"
+   },
+   "RatingIn": {
+    "properties": {
+     "value": {
+      "type": "integer",
+      "maximum": 5.0,
+      "minimum": 1.0,
+      "title": "Value"
+     }
+    },
+    "type": "object",
+    "required": [
+     "value"
+    ],
+    "title": "RatingIn"
+   },
+   "RebuildIn": {
+    "properties": {
+     "force": {
+      "type": "boolean",
+      "title": "Force",
+      "default": false
+     }
+    },
+    "type": "object",
+    "title": "RebuildIn"
+   },
+   "RegisterIn": {
+    "properties": {
+     "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email"
+     },
+     "password": {
+      "type": "string",
+      "maxLength": 128,
+      "minLength": 10,
+      "title": "Password"
+     },
+     "display_name": {
+      "type": "string",
+      "maxLength": 80,
+      "minLength": 1,
+      "title": "Display Name"
+     }
+    },
+    "type": "object",
+    "required": [
+     "email",
+     "password",
+     "display_name"
+    ],
+    "title": "RegisterIn"
+   },
+   "SearchMeta": {
+    "properties": {
+     "page": {
+      "type": "integer",
+      "title": "Page"
+     },
+     "page_size": {
+      "type": "integer",
+      "title": "Page Size"
+     },
+     "total": {
+      "type": "integer",
+      "title": "Total"
+     },
+     "pages": {
+      "type": "integer",
+      "title": "Pages"
+     },
+     "mode_used": {
+      "type": "string",
+      "title": "Mode Used"
+     },
+     "semantic_available": {
+      "type": "boolean",
+      "title": "Semantic Available"
+     },
+     "notice": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Notice"
+     },
+     "books_without_embeddings": {
+      "type": "integer",
+      "title": "Books Without Embeddings",
+      "default": 0
+     },
+     "cold_start": {
+      "type": "boolean",
+      "title": "Cold Start",
+      "default": false
+     }
+    },
+    "type": "object",
+    "required": [
+     "page",
+     "page_size",
+     "total",
+     "pages",
+     "mode_used",
+     "semantic_available"
+    ],
+    "title": "SearchMeta"
+   },
+   "SearchOut": {
+    "properties": {
+     "items": {
+      "items": {
+       "$ref": "#/components/schemas/RankedBook"
+      },
+      "type": "array",
+      "title": "Items"
+     },
+     "meta": {
+      "$ref": "#/components/schemas/SearchMeta"
+     }
+    },
+    "type": "object",
+    "required": [
+     "items",
+     "meta"
+    ],
+    "title": "SearchOut"
+   },
+   "UserOut": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "title": "Id"
+     },
+     "email": {
+      "type": "string",
+      "title": "Email"
+     },
+     "display_name": {
+      "type": "string",
+      "title": "Display Name"
+     },
+     "is_admin": {
+      "type": "boolean",
+      "title": "Is Admin"
+     }
+    },
+    "type": "object",
+    "required": [
+     "id",
+     "email",
+     "display_name",
+     "is_admin"
+    ],
+    "title": "UserOut"
+   },
+   "ValidationError": {
+    "properties": {
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "type": "array",
+      "title": "Location"
+     },
+     "msg": {
+      "type": "string",
+      "title": "Message"
+     },
+     "type": {
+      "type": "string",
+      "title": "Error Type"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "ctx": {
+      "type": "object",
+      "title": "Context"
+     }
+    },
+    "type": "object",
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError"
+   }
+  }
+ }
+}

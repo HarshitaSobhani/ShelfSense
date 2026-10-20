@@ -1,0 +1,151 @@
+{
+ "version": "2026-10-seed-v2",
+ "note": "Small hand-written relevance judgments over the seed catalog, authored by the project, not by independent annotators or real users. Useful for detecting regressions and comparing retrieval modes on this catalog; not evidence of general recommendation quality.",
+ "queries": [
+  {
+   "q": "a cozy adventure with found family and humour",
+   "relevant": [
+    "The Hobbit",
+    "Good Omens",
+    "The Lies of Locke Lamora",
+    "Anne of Green Gables",
+    "Little Women"
+   ]
+  },
+  {
+   "q": "haunted house with creeping dread and family secrets",
+   "relevant": [
+    "Mexican Gothic",
+    "The Haunting of Hill House",
+    "Rebecca",
+    "Jane Eyre"
+   ]
+  },
+  {
+   "q": "bleak dystopia about surveillance and oppression",
+   "relevant": [
+    "Nineteen Eighty-Four",
+    "The Handmaid's Tale",
+    "Brave New World",
+    "Parable of the Sower"
+   ]
+  },
+  {
+   "q": "closed circle murder mystery with a clever twist",
+   "relevant": [
+    "And Then There Were None",
+    "The Murder of Roger Ackroyd",
+    "Gideon the Ninth",
+    "The Name of the Rose"
+   ]
+  },
+  {
+   "q": "enemies to lovers romance with witty banter",
+   "relevant": [
+    "Pride and Prejudice",
+    "Beach Read",
+    "Red, White & Royal Blue"
+   ]
+  },
+  {
+   "q": "a lone survivor solving science problems in space",
+   "relevant": [
+    "The Martian",
+    "Project Hail Mary"
+   ]
+  },
+  {
+   "q": "greek mythology retold with lyrical prose",
+   "relevant": [
+    "Circe",
+    "The Song of Achilles"
+   ]
+  },
+  {
+   "q": "dark academia with murder among university friends",
+   "relevant": [
+    "The Secret History",
+    "Gideon the Ninth"
+   ]
+  },
+  {
+   "q": "post-apocalyptic survival journey after civilization collapses",
+   "relevant": [
+    "The Road",
+    "Station Eleven",
+    "Parable of the Sower"
+   ]
+  },
+  {
+   "q": "a heist crew pulling off a con in a fantasy city",
+   "relevant": [
+    "The Lies of Locke Lamora",
+    "Mistborn: The Final Empire"
+   ]
+  },
+  {
+   "q": "melancholic literary novel about repressed regret and memory",
+   "relevant": [
+    "The Remains of the Day",
+    "Never Let Me Go",
+    "Beloved"
+   ]
+  },
+  {
+   "q": "accessible nonfiction explaining science and history to general readers",
+   "relevant": [
+    "Sapiens",
+    "A Brief History of Time",
+    "The Immortal Life of Henrietta Lacks"
+   ]
+  },
+  {
+   "q": "unreliable narrator thriller about a missing wife",
+   "relevant": [
+    "Gone Girl",
+    "Rebecca"
+   ]
+  },
+  {
+   "q": "a magic school story about a gifted young wizard",
+   "relevant": [
+    "A Wizard of Earthsea",
+    "The Name of the Wind"
+   ]
+  },
+  {
+   "q": "slavery and its legacy explored through fiction",
+   "relevant": [
+    "Beloved",
+    "Kindred"
+   ]
+  },
+  {
+   "q": "Dune",
+   "relevant": [
+    "Dune"
+   ]
+  },
+  {
+   "q": "Octavia Butler",
+   "relevant": [
+    "Kindred",
+    "Parable of the Sower"
+   ]
+  },
+  {
+   "q": "Agatha Christie",
+   "relevant": [
+    "And Then There Were None",
+    "The Murder of Roger Ackroyd"
+   ]
+  },
+  {
+   "q": "Le Guin",
+   "relevant": [
+    "A Wizard of Earthsea",
+    "The Left Hand of Darkness"
+   ]
+  }
+ ]
+}
